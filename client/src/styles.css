@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
 .app {
+    font-family: 'Merriweather', serif;
     height: 100vh;
     padding: 0 50px; 
     display: flex;
@@ -16,21 +19,31 @@
     }
 
     .addHome {
-        padding: 10px;
+        padding: 10px 20px;
         margin-top: 20px;
         cursor: pointer;
         border: none;
         background-color: teal;
         color: white;
         font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            background-color: darkslategray;
+            transform: scale(1.05);
+        }
     }
 
     h1 {
-        margin-bottom: 50px;
+        margin-bottom: 40px;
+        font-size: 35px;
     }
 
     .books {
         display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
 
         .book {
             flex: 1;
@@ -38,27 +51,47 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
             img {
                 width: 200px;
                 height: 300px;
                 object-fit: cover;
+                border-radius: 10px;
             }
 
             button {
-                padding: 3px 6px;
-                background-color: white;
+                padding: 10px 20px;
+                background-color: teal;
+                color: white;
+                border: none;
+                border-radius: 5px;
                 cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+
+                &:hover {
+                    background-color: darkslategray;
+                    transform: scale(1.05);
+                }
             }
 
             .delete {
-                border: 1px solid rgb(245, 191, 191);
-                color: rgb(242, 100, 100);
+                background-color: rgb(242, 100, 100);
+
+                &:hover {
+                    background-color: rgb(211, 75, 75);
+                }
             }
 
             .update {
-                border: 1px solid rgb(204, 204, 243);
-                color: rgb(139, 139, 234);
+                background-color: rgb(139, 139, 234);
+
+                &:hover {
+                    background-color: rgb(105, 105, 204);
+                }
             }
         }
     }
@@ -77,6 +110,7 @@
             width: 100%; 
             padding: 10px;
             border: 1px solid gray;
+            border-radius: 5px;
             box-sizing: border-box; 
         }
 
@@ -90,6 +124,13 @@
             color: white;
             font-weight: bold;
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+
+            &:hover {
+                background-color: darkslategray;
+                transform: scale(1.05);
+            }
         }
     }
 }

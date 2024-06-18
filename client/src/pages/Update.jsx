@@ -1,49 +1,87 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Update = () => {
-  const [book, setBook] = useState({
-    title: '',
-    desc: '',
-    price: null,
-    cover: ''
-  });
+    const [book, setBook] = useState({
+        title: "",
+        desc: "",
+        price: "",
+        cover: null // Changed to null
+    });
+    const [error, setError] = useState(false);
 
-  const navigate = useNavigate()
-  const location = useLocation()
-  const [error,setError] = useState(false)
+    const location = useLocation();
+    const navigate = useNavigate();
 
-  const bookId = location.pathname.split('/')[2]
-  console.log(bookId)
+    const bookId = location.pathname.split("/")[2];
 
-  const handleChange = (e) => {
-    setBook((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+    const handleChange = (e) => {
+        const { name, value, files } = e.target;
+        if (name === "cover" && files.length > 0) {
+            setBook((prev) => ({ ...prev, cover: files[0] }));
+        } else {
+            setBook((prev) => ({ ...prev, [name]: value }));
+        }
+    };
 
-  const handleClick = async (e) => {
-    e.preventDefault()
-    try {
-      await axios.put(`http://localhost:8800/books/${bookId}`, book);
-      navigate("/")
-    } catch (error) {
-      console.log(error)
-      setError(true)
-    }
-  }
-  console.log(book)
-  return (
-    <div className="form">
-      <h1>Update book details</h1>
-      <input type="text" placeholder='Title' onChange={handleChange} name='title' />
-      <input type="text" placeholder='Descriprion' onChange={handleChange} name='desc' />
-      <input type="number" placeholder='Price' onChange={handleChange} name='price' />
-      <input type="text" placeholder='Cover' onChange={handleChange} name='cover' />
-      <button onClick={handleClick}>Update</button>
-      {error && "Something went wrong!"}
-      <Link to="/">See all books</Link>
-    </div>
-  )
-}
+    const handleClick = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('title', book.title);
+        formData.append('desc', book.desc);
+        formData.append('price', book.price);
+        if (book.cover) {
+            formData.append('cover', book.cover);
+        }
 
-export default Update
+        try {
+            await axios.put(`http://localhost:8800/books/${bookId}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            navigate("/");
+        } catch (err) {
+            console.log(err);
+            setError(true);
+        }
+    };
+
+    return (
+        <div className="form">
+            <h1>Update the book</h1>
+            <input
+                type="text"
+                placeholder="Book title"
+                name="title"
+                value={book.title}
+                onChange={handleChange}
+            />
+            <textarea
+                rows={5}
+                placeholder="Book desc"
+                name="desc"
+                value={book.desc}
+                onChange={handleChange}
+            />
+            <input
+                type="number"
+                placeholder="Book price"
+                name="price"
+                value={book.price}
+                onChange={handleChange}
+            />
+            <input
+                type="file"
+                name="cover"
+                onChange={handleChange}
+            />
+            <button onClick={handleClick}>Update</button>
+            {error && "Something went wrong!"}
+            <Link to="/">See all books</Link>
+        </div>
+    );
+};
+
+export default Update;
