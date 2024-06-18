@@ -52,9 +52,9 @@ const Add = () => {
                 <input type="file" name="cover" onChange={handleChange} />
                 <input type="text" placeholder="Price" name="price" value={book.price} onChange={handleChange} />
                 <button onClick={handleClick}>Add Book</button>
+                {error && <p>Something went wrong!</p>}
+                <Link to="/">See all books</Link>
             </div>
-            {error && <p>Something went wrong!</p>}
-            <Link to="/">See all books</Link>
         </div>
     );
 };

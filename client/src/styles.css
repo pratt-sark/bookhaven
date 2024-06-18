@@ -152,13 +152,26 @@ h1 {
 }
 
 .form input,
-.form textarea,
-.form button {
+.form textarea{
     width: 100%; 
     padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+}
+
+.form button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    width: 80%; 
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .add-button-container {
