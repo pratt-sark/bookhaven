@@ -166,3 +166,11 @@ h1 {
     justify-content: center;
     margin-top: 10px;
 }
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .book {
+        flex: 0 0 100%; /* Each book takes full width on smaller screens */
+        margin-left: 0; /* Ensure no left margin on single column */
+    }
+}
