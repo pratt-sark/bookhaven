@@ -47,7 +47,7 @@ body::before {
     padding: 12px 24px; /* Increased padding for larger size */
     cursor: pointer;
     border: none;
-    background-color: teal;
+    background-color: darkslategray;
     color: white;
     font-weight: bold;
     border-radius: 3px; /* Increased border-radius for a rounded button */
@@ -185,5 +185,42 @@ h1 {
     .book {
         flex: 0 0 100%; /* Each book takes full width on smaller screens */
         margin-left: 0; /* Ensure no left margin on single column */
+    }
+}
+
+/* Navbar styles */
+.navbar {
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Example texture image */
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.7); /* Blackish overlay with some transparency */
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between; /* Space between brand and links */
+    align-items: center;
+
+    .navbar-brand {
+        font-size: 35px;
+        margin: 0;
+        padding: 0;
+        text-align: center; /* Center the text */
+        flex: 1; /* Take up remaining space */
+    }
+
+    .navbar-links {
+        display: flex;
+        gap: 20px;
+
+        .navbar-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #1a73e8; /* Example color (darker blue) */
+            }
+        }
     }
 }

@@ -28,7 +28,18 @@ const Books = () => {
 
     return (
         <div>
-            <h1>Book Haven</h1>
+            <div className="navbar">
+                <h1 className="navbar-brand">Book Haven</h1>
+            </div>
+
+            <div className="add-button-container">
+                <button className="addHome" style={{ marginTop: '20px', marginBottom: '20px' }}>
+                    <Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>
+                        Add new book
+                    </Link>
+                </button>
+            </div>
+
             <div className="books">
                 {books.map((book) => (
                     <div className="book" key={book.id}>
@@ -49,13 +60,6 @@ const Books = () => {
                         </button>
                     </div>
                 ))}
-            </div>
-            <div className="add-button-container">
-                <button className="addHome">
-                    <Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>
-                        Add new book
-                    </Link>
-                </button>
             </div>
         </div>
     );
