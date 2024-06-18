@@ -5,8 +5,10 @@ BookHaven is a web application for managing a collection of books. Users can add
 ### Desktop/Laptop View
 ![Desktop/Laptop View](https://github.com/pratt-sark/bookhaven/assets/72748736/833995fc-e933-4706-8fe0-35c5dc8cc051)
 
-### Mobile View
-![Mobile View](https://github.com/pratt-sark/bookhaven/assets/72748736/8a78c5c3-9264-4c60-a268-c17327f9c11b)
+<p align="center">
+    ### Mobile View
+    <img src="https://github.com/pratt-sark/bookhaven/assets/72748736/8a78c5c3-9264-4c60-a268-c17327f9c11b" alt="Mobile View" />
+</p>
 
 
 ## Table of Contents
