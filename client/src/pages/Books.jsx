@@ -40,21 +40,23 @@ const Books = () => {
                             Delete
                         </button>
                         <button className="update">
-              <Link
-                to={`/update/${book.id}`}
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                Update
-              </Link>
-            </button>
+                            <Link
+                                to={`/update/${book.id}`}
+                                style={{ color: "inherit", textDecoration: "none" }}
+                            >
+                                Update
+                            </Link>
+                        </button>
                     </div>
                 ))}
             </div>
-            <button className="addHome">
-                <Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>
-                    Add new book
-                </Link>
-            </button>
+            <div className="add-button-container">
+                <button className="addHome">
+                    <Link to="/add" style={{ color: "inherit", textDecoration: "none" }}>
+                        Add new book
+                    </Link>
+                </button>
+            </div>
         </div>
     );
 };

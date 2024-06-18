@@ -5,10 +5,11 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: url('https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed; /* Set the background image */
+    background: url('https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
     background-size: cover;
     position: relative;
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
 
 body::before {
@@ -19,165 +20,149 @@ body::before {
     right: 0;
     bottom: 0;
     background: inherit;
-    filter: blur(8px); /* Apply blur effect */
-    z-index: -1; /* Ensure it is behind all other content */
+    filter: blur(8px);
+    z-index: -1;
 }
 
 .app {
-    height: 100vh;
-    padding: 0 50px; 
+    min-height: 100vh; /* Ensure at least viewport height */
+    padding: 20px; /* Add padding for breathing room */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    position: relative;
-    z-index: 1;
+}
 
-    .container {
-        width: 100%;
-        max-width: 800px; 
-        margin: 0 auto; 
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto; /* Added 20px top and bottom margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addHome {
+    padding: 12px 24px; /* Increased padding for larger size */
+    cursor: pointer;
+    border: none;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px; /* Increased border-radius for a rounded button */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px; /* Increased font size */
+}
+
+.addHome:hover {
+    background-color: darkslategray;
+    transform: scale(1.05);
+}
+
+
+h1 {
+    margin-top: 20px; /* Added 20px top margin */
+    margin-bottom: 35px;
+    font-size: 35px;
+    text-align: center; /* Center text horizontally */
+}
+
+.books {
+    display: flex;
+    flex-wrap: wrap; /* Allow books to wrap to new rows */
+    gap: 20px;
+    justify-content: center; /* Center books horizontally */
+    margin-top: 20px; /* Added 20px top margin */
+}
+
+.book {
+    flex: 0 0 calc(25% - 20px); /* Each book occupies 25% minus gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ddd;
+    padding: 30px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    min-width: 230px;
+    margin-bottom: 20px; /* Spacing between rows */
+
+    &:nth-child(4n + 1) {
+        margin-left: 0; /* Clear margin on the first book of each row */
     }
 
-    .addHome {
+    img {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-weight: 700;
+    }
+
+    p {
+        font-weight: 300;
+    }
+
+    span {
+        font-weight: 400;
+    }
+
+    button {
         padding: 10px 20px;
-        margin-top: 25px;
-        cursor: pointer;
-        border: none;
         background-color: teal;
         color: white;
-        font-weight: bold;
+        border: none;
         border-radius: 5px;
+        cursor: pointer;
         transition: background-color 0.3s ease, transform 0.3s ease;
-        font-family: 'Merriweather', serif;
+    }
+
+    .delete {
+        background-color: rgb(242, 100, 100);
 
         &:hover {
-            background-color: darkslategray;
-            transform: scale(1.05);
+            background-color: rgb(211, 75, 75);
         }
     }
 
-    h1 {
-        margin-top: 0%;
-        margin-bottom: 35px;
-        font-size: 35px;
-        font-family: 'Merriweather', serif;
-    }
+    .update {
+        background-color: rgb(139, 139, 234);
 
-    .books {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-
-        .book {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: white;
-
-            min-width: 230px;
-
-            img {
-                width: 200px;
-                height: 300px;
-                object-fit: cover;
-                border-radius: 10px;
-            }
-
-            h2 {
-                font-family: 'Merriweather', serif;
-                font-weight: 700;
-            }
-
-            p {
-                font-family: 'Merriweather', serif;
-                font-weight: 300;
-            }
-
-            span {
-                font-family: 'Merriweather', serif;
-                font-weight: 400;
-            }
-
-            button {
-                padding: 10px 20px;
-                background-color: teal;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                transition: background-color 0.3s ease, transform 0.3s ease;
-                font-family: 'Merriweather', serif;
-
-                &:hover {
-                    background-color: darkslategray;
-                    transform: scale(1.05);
-                }
-            }
-
-            .delete {
-                background-color: rgb(242, 100, 100);
-
-                &:hover {
-                    background-color: rgb(211, 75, 75);
-                }
-            }
-
-            .update {
-                background-color: rgb(139, 139, 234);
-
-                &:hover {
-                    background-color: rgb(105, 105, 204);
-                }
-            }
+        &:hover {
+            background-color: rgb(105, 105, 204);
         }
     }
+}
 
-    .form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center; 
-        justify-content: center; 
-        width: 100%;
-        max-width: 350px; 
-        margin: 0 auto; 
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; 
+    justify-content: center; 
+    width: 100%;
+    max-width: 350px; 
+    margin: 0 auto; 
+}
 
-        input, textarea, button {
-            width: 100%; 
-            padding: 10px;
-            border: 1px solid gray;
-            border-radius: 5px;
-            box-sizing: border-box; 
-            font-family: 'Merriweather', serif;
-        }
+.form input,
+.form textarea,
+.form button {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
 
-        textarea {
-            padding: 10px;
-        }
-
-        button {
-            border: none;
-            background-color: teal;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-
-            &:hover {
-                background-color: darkslategray;
-                transform: scale(1.05);
-            }
-        }
-    }
+.add-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }

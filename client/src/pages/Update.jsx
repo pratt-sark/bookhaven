@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Update = () => {
@@ -7,14 +7,27 @@ const Update = () => {
         title: "",
         desc: "",
         price: "",
-        cover: null // Changed to null
+        cover: null
     });
     const [error, setError] = useState(false);
-
     const location = useLocation();
     const navigate = useNavigate();
 
     const bookId = location.pathname.split("/")[2];
+
+    useEffect(() => {
+        const fetchBookData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8800/books/${bookId}`);
+                const bookData = response.data;
+                setBook(bookData);
+            } catch (error) {
+                console.error("Error fetching book data:", error);
+                setError(true);
+            }
+        };
+        fetchBookData();
+    }, [bookId]);
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -43,7 +56,7 @@ const Update = () => {
             });
             navigate("/");
         } catch (err) {
-            console.log(err);
+            console.error("Error updating book:", err);
             setError(true);
         }
     };

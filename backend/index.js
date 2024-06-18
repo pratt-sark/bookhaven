@@ -104,6 +104,22 @@ app.put('/books/:id', upload.single('cover'), (req, res) => {
     });
 });
 
+app.get('/books/:id', (req, res) => {
+    const query = "SELECT * FROM books WHERE id = ?";
+    db.query(query, [req.params.id], (err, results) => {
+        if (err) {
+            console.log(err);
+            res.status(500).json({ error: err.message });
+        } else {
+            if (results.length > 0) {
+                res.json(results[0]);
+            } else {
+                res.status(404).json({ error: "Book not found" });
+            }
+        }
+    });
+});
+
 app.listen(8800, () => {
     console.log('Server is running on port 8800');
 });
