@@ -1,13 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
 
-.app {
+body {
     font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url('https://images.pexels.com/photos/2341290/pexels-photo-2341290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed; /* Set the background image */
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(8px); /* Apply blur effect */
+    z-index: -1; /* Ensure it is behind all other content */
+}
+
+.app {
     height: 100vh;
     padding: 0 50px; 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+    z-index: 1;
 
     .container {
         width: 100%;
@@ -20,7 +44,7 @@
 
     .addHome {
         padding: 10px 20px;
-        margin-top: 20px;
+        margin-top: 25px;
         cursor: pointer;
         border: none;
         background-color: teal;
@@ -28,6 +52,7 @@
         font-weight: bold;
         border-radius: 5px;
         transition: background-color 0.3s ease, transform 0.3s ease;
+        font-family: 'Merriweather', serif;
 
         &:hover {
             background-color: darkslategray;
@@ -36,8 +61,10 @@
     }
 
     h1 {
-        margin-bottom: 40px;
+        margin-top: 0%;
+        margin-bottom: 35px;
         font-size: 35px;
+        font-family: 'Merriweather', serif;
     }
 
     .books {
@@ -55,12 +82,30 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+
+            min-width: 230px;
 
             img {
                 width: 200px;
                 height: 300px;
                 object-fit: cover;
                 border-radius: 10px;
+            }
+
+            h2 {
+                font-family: 'Merriweather', serif;
+                font-weight: 700;
+            }
+
+            p {
+                font-family: 'Merriweather', serif;
+                font-weight: 300;
+            }
+
+            span {
+                font-family: 'Merriweather', serif;
+                font-weight: 400;
             }
 
             button {
@@ -71,6 +116,7 @@
                 border-radius: 5px;
                 cursor: pointer;
                 transition: background-color 0.3s ease, transform 0.3s ease;
+                font-family: 'Merriweather', serif;
 
                 &:hover {
                     background-color: darkslategray;
@@ -112,6 +158,7 @@
             border: 1px solid gray;
             border-radius: 5px;
             box-sizing: border-box; 
+            font-family: 'Merriweather', serif;
         }
 
         textarea {
