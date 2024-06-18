@@ -2,6 +2,13 @@
 
 BookHaven is a web application for managing a collection of books. Users can add, update, and delete books from the collection. This project is built using React for the frontend and Node.js with Express for the backend, with MySQL as the database. It's a basic web app useful for learning the basics of each of these technologies.
 
+### Desktop/Laptop View
+![Desktop/Laptop View](https://github.com/pratt-sark/bookhaven/assets/72748736/833995fc-e933-4706-8fe0-35c5dc8cc051)
+
+### Mobile View
+![Mobile View](https://github.com/pratt-sark/bookhaven/assets/72748736/8a78c5c3-9264-4c60-a268-c17327f9c11b)
+
+
 ## Table of Contents
 
 - [Features](#features)
